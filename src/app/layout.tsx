@@ -1,0 +1,1 @@
+import type { Metadata } from "next"; import "./globals.css"; export const metadata: Metadata = { title: "Dr Mululi | African Herbal Medicine", description: "Nature’s medicine. African wisdom. Better living." }; export default function RootLayout({children}:{children:React.ReactNode}) { return <html lang="en"><body>{children}</body></html>; }
