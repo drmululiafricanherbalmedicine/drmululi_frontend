@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {ArrowRight,Leaf,Search,TrendingUp} from "lucide-react";
 import {motion} from "framer-motion";
-import {useSearchParams} from "next/navigation";
 import {graphqlRequest} from "@/lib/graphql";import SiteHeader from "@/components/SiteHeader";import SiteFooter from "@/components/SiteFooter";import {curatedProducts} from "@/lib/curated-products";
 type Product={id:string;name:string;description:string;category:string;price:number;currency:string;imageUrl?:string|null;active:boolean;stock:number};
 const fallback:Product[]=[
@@ -15,9 +14,8 @@ const fallback:Product[]=[
 {id:"ulcers",name:"Ulcers",description:"Traditional botanical blend inspired by African herbal practices.",category:"Digestive Wellness",price:40000,currency:"UGX",imageUrl:"/products/dr-mululi-ulcers-500ml.png",active:true,stock:0},
 {id:"prostate-enlargement",name:"Prostate Enlargement",description:"Traditional botanical blend within the Dr. Mululi men’s wellness collection.",category:"Men’s Wellness",price:50000,currency:"UGX",imageUrl:"/products/dr-mululi-prostate-enlargement-500ml.png",active:true,stock:0}];
 export default function ProductsPage(){
-const searchParams=useSearchParams();
-const [products,setProducts]=useState<Product[]>([...fallback,...curatedProducts]),[query,setQuery]=useState(""),[category,setCategory]=useState(searchParams.get("category")||"All");
-useEffect(()=>{graphqlRequest<{products:Product[]}>("query { products(activeOnly:true) { id name description category price currency imageUrl active stock } }").then(d=>{if(d.products.length)setProducts([...d.products,...curatedProducts])}).catch(()=>{});},[]);
+const [products,setProducts]=useState<Product[]>([...fallback,...curatedProducts]),[query,setQuery]=useState(""),[category,setCategory]=useState("All");
+useEffect(()=>{const requestedCategory=new URLSearchParams(window.location.search).get("category");if(requestedCategory)setCategory(requestedCategory);graphqlRequest<{products:Product[]}>("query { products(activeOnly:true) { id name description category price currency imageUrl active stock } }").then(d=>{if(d.products.length)setProducts([...d.products,...curatedProducts])}).catch(()=>{});},[]);
 const categories=["All",...Array.from(new Set(products.map(p=>p.category)))];const launchNames=["Prostate Enlargement","Ulcers","Diabetes"];const popularNames=["Infections","Cough","Malaria","Diabetes"];const launchMatches=products.filter(p=>launchNames.includes(p.name));const launchProducts=launchMatches.length?launchMatches.slice(0,3):products.slice(-3).reverse();const popularMatches=products.filter(p=>popularNames.includes(p.name));const popularProducts=(popularMatches.length?popularMatches:products).slice(0,4);
 const filtered=products.filter(p=>(category==="All"||p.category===category)&&(p.name+" "+p.description+" "+p.category).toLowerCase().includes(query.toLowerCase()));
 return <main className="catalog-page"><SiteHeader />
