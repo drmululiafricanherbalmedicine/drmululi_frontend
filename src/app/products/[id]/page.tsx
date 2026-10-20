@@ -22,8 +22,8 @@ useEffect(()=>{graphqlRequest<{products:Product[]}>("query { products(activeOnly
 const key=decodeURIComponent(params.id||"");
 const product=products.find(p=>p.id===key||p.name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"")===key);
 const phone=(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER||"256700123456").replace(/\D/g,"");
-if(!product&&loading)return <main className="detail-loading"><div className="loading-orb"/><p>Preparing product details…</p></main>;
-if(!product)return <main className="catalog-page"><div className="container catalog-empty"><Leaf size={34}/><h1>Product not found</h1><p>This product may no longer be available.</p><Link className="btn btn-dark mt-4" href="/products">Browse all products</Link></div></main>;
+if(!product&&loading)return <main className="detail-page"><SiteHeader /><div className="detail-loading"><div className="loading-orb"/><p>Preparing product details…</p></div><SiteFooter /></main>;
+if(!product)return <main className="catalog-page"><SiteHeader /><div className="container catalog-empty"><Leaf size={34}/><h1>Product not found</h1><p>This product may no longer be available.</p><Link className="btn btn-dark mt-4" href="/products">Browse all products</Link></div><SiteFooter /></main>;
 return <main className="detail-page"><SiteHeader />
 <div className="container detail-breadcrumb"><Link href="/">Home</Link><ArrowRight size={13}/><Link href="/products">Products</Link><ArrowRight size={13}/><span>{product.name}</span></div>
 <section className="container detail-layout"><motion.div className="detail-image-panel" initial={{opacity:0,x:-18}} animate={{opacity:1,x:0}}><div className="detail-image-glow"/><Image src={product.imageUrl||"/products/dr-mululi-infections-500ml.png"} alt={product.name+" 500 ml bottle"} width={700} height={700} priority unoptimized/><span className="detail-image-caption"><Leaf size={15}/> AFRICAN BOTANICAL COLLECTION</span></motion.div>
