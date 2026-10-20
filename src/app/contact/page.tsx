@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  ArrowLeft, ArrowRight, Clock3, Leaf, Mail, MapPin, MessageCircle,
+  ArrowRight, Clock3, Leaf, Mail, MapPin, MessageCircle,
   Phone, ShieldCheck, Sprout, Sparkles
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
