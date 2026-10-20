@@ -79,3 +79,96 @@
 
 .mobile-menu-toggle{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid #b5d64b70;border-radius:9px;background:#ffffff0b;color:#fff;cursor:pointer;flex-shrink:0}.mobile-navigation{display:none}
 @media(max-width:600px){.site-header>.container{gap:10px}.header-contact-cta{display:none!important}.mobile-menu-toggle{display:inline-flex}.mobile-navigation{display:flex;flex-direction:column;gap:0;padding:8px 14px 16px;border-top:1px solid #b5d64b35;background:#06200f}.mobile-navigation a{display:flex;align-items:center;justify-content:space-between;padding:13px 8px;color:#f1f4e9;font-size:14px;border-bottom:1px solid #ffffff12}.mobile-navigation a:last-child{border-bottom:0}.mobile-navigation a svg{color:#b5d64b}}
+
+
+/* Animated, botanical contact page */
+.contact-page{min-height:100vh;background:#f7f6ef;color:#18251a;overflow:hidden}
+.contact-topbar{position:relative;z-index:5;background:linear-gradient(105deg,#03170a,#0a3219 58%,#06200f);color:#fff;border-bottom:1px solid #b5d64b35}
+.contact-topbar-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.contact-back-link{display:inline-flex;align-items:center;gap:8px;color:#e1e9d8;font-size:12px;transition:color .2s}
+.contact-back-link:hover{color:#c6e46b}
+.contact-hero{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 82% 45%,#214d29 0,transparent 40%),linear-gradient(118deg,#061a0c 0%,#0b2a13 56%,#102f17 100%);color:#fff}
+.contact-hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr);align-items:center;gap:28px;min-height:570px;padding-top:42px;padding-bottom:48px}
+.contact-hero-copy{position:relative;z-index:3;max-width:610px;padding:16px 0}
+.contact-kicker,.contact-section-kicker{display:inline-flex;align-items:center;gap:9px;color:#c8e37b;font-size:10px;font-weight:800;letter-spacing:1.8px}
+.contact-hero h1{max-width:650px;margin:23px 0 20px;font:500 clamp(43px,5.4vw,70px)/1.02 Georgia,'Times New Roman',serif;letter-spacing:-2px}
+.contact-hero h1 em,.contact-message-copy h2 em{font-weight:400;color:#c6e27a}
+.contact-hero-copy>p{max-width:490px;color:#d6e2d1;font-size:15px;line-height:1.9}
+.contact-hero-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:30px}
+.contact-whatsapp-button{display:inline-flex;align-items:center;gap:10px;border:1px solid #d0e98c66;border-radius:999px;padding:14px 18px;background:linear-gradient(135deg,#c2df72,#8dbd40);color:#14290f;font-size:12px;font-weight:800;box-shadow:0 10px 28px #0002;transition:transform .25s,box-shadow .25s}
+.contact-whatsapp-button:hover,.contact-last-cta-button:hover{transform:translateY(-3px);box-shadow:0 14px 34px #0003}
+.contact-scroll-link{display:inline-flex;align-items:center;gap:8px;color:#e0e9d9;font-size:12px;border-bottom:1px solid #b7d96c80;padding:9px 0}
+.contact-scroll-link:hover{color:#c6e46b}
+.contact-hero-note{display:flex;align-items:center;gap:9px;margin-top:34px;color:#bfcfba;font-size:11px}
+.contact-hero-note svg{color:#b9d96a}
+.contact-hero-glow{position:absolute;z-index:-1;border-radius:50%;filter:blur(2px);pointer-events:none}
+.contact-hero-glow-one{width:350px;height:350px;right:7%;top:4%;background:radial-gradient(circle,#9fc95620 0,transparent 70%)}
+.contact-hero-glow-two{width:250px;height:250px;left:25%;bottom:-130px;background:radial-gradient(circle,#88b84b18 0,transparent 70%)}
+.contact-hero-orbit{position:absolute;right:7%;top:8%;width:490px;aspect-ratio:1;border:1px solid #c3e17712;border-radius:50%;pointer-events:none}
+.contact-botanical-art{position:relative;justify-self:center;width:min(100%,440px);height:440px;display:grid;place-items:center}
+.botanical-sun{position:absolute;width:250px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#c9e78c22 0,#8dbd4820 45%,transparent 72%);box-shadow:0 0 100px #9cc65a14}
+.botanical-ring{position:absolute;aspect-ratio:1;border:1px solid #c4e27b24;border-radius:50%}
+.botanical-ring-one{width:310px;transform:rotate(-18deg) scaleY(.78)}
+.botanical-ring-two{width:365px;transform:rotate(30deg) scaleY(.82);border-style:dashed;border-color:#c4e27b18}
+.botanical-stem-art{position:relative;z-index:1;width:100%;height:100%;max-width:360px;overflow:visible;filter:drop-shadow(0 10px 22px #0002)}
+.botanical-caption{position:absolute;z-index:2;bottom:21px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;width:max-content;max-width:calc(100% - 20px);padding:12px 16px;border:1px solid #ffffff1d;border-radius:15px;background:#071e0dd9;backdrop-filter:blur(12px);box-shadow:0 12px 32px #0002}
+.botanical-caption-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:11px;background:#c5e37b1b;color:#c6e27a}
+.botanical-caption>span:last-child{display:flex;flex-direction:column;gap:4px}
+.botanical-caption strong{color:#f5f7ed;font:500 13px Georgia,serif}
+.botanical-caption small{color:#b8c9af;font-size:10px}
+.botanical-sparkle{position:absolute;z-index:2;color:#c8e681;filter:drop-shadow(0 0 10px #c6e27a55)}
+.sparkle-one{right:17%;top:18%}.sparkle-two{left:17%;top:38%}
+.contact-floating-leaf{position:absolute;z-index:1;color:#b5d66b;opacity:.2;pointer-events:none}
+.leaf-one{top:17%;right:12%}.leaf-two{bottom:16%;right:43%;opacity:.13}.leaf-three{top:18%;left:44%}
+.contact-hero-bottom-line{height:3px;background:linear-gradient(90deg,transparent,#b9d86a,#e3efb4,#8db74a,transparent);opacity:.8}
+.contact-details-section{position:relative;z-index:3;padding:0 0 42px;background:#f7f6ef}
+.contact-details-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:-1px}
+.contact-detail-card{display:flex;align-items:center;gap:15px;min-width:0;padding:23px 20px;border:1px solid #e5e7d9;border-radius:16px;background:#fffef9;box-shadow:0 12px 34px #152a1010;transition:transform .25s,border-color .25s,box-shadow .25s}
+.contact-detail-card:hover{transform:translateY(-4px);border-color:#c6d8a5;box-shadow:0 18px 36px #152a1018}
+.contact-detail-icon{display:grid;place-items:center;flex:0 0 46px;width:46px;height:46px;border-radius:14px;background:#eaf0dc;color:#416a2c}
+.contact-detail-copy{display:flex;flex-direction:column;gap:6px;min-width:0}
+.contact-detail-copy small{font-size:9px;font-weight:800;letter-spacing:1.25px;color:#7b8e52}
+.contact-detail-copy strong{overflow-wrap:anywhere;font:600 16px/1.25 Georgia,serif;color:#193820}
+.contact-detail-copy em{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-style:normal;color:#718064}
+.contact-message-section{padding:70px 0 86px;background:linear-gradient(180deg,#f7f6ef 0%,#efefe4 100%)}
+.contact-message-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:start;gap:clamp(35px,7vw,95px)}
+.contact-message-copy{padding:25px 0}
+.contact-section-kicker{color:#698739}
+.contact-message-copy h2{margin:21px 0 20px;font:500 clamp(39px,4.5vw,57px)/1.04 Georgia,serif;letter-spacing:-1.5px;color:#18361e}
+.contact-message-copy h2 em{color:#789c3c}
+.contact-message-copy>p{max-width:470px;color:#687263;font-size:14px;line-height:1.9}
+.contact-promise{display:flex;align-items:flex-start;gap:14px;margin-top:25px}
+.contact-promise>span{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border:1px solid #dce4ce;border-radius:13px;background:#f9faef;color:#66873c}
+.contact-promise>div{padding-top:2px}
+.contact-promise strong{font:600 16px Georgia,serif;color:#26472a}
+.contact-promise p{max-width:370px;margin-top:6px;color:#788071;font-size:12px;line-height:1.7}
+.contact-leaf-divider{display:flex;align-items:center;gap:12px;width:180px;margin:31px 0 20px;color:#8ba54c}
+.contact-leaf-divider span{height:1px;flex:1;background:#d2dcc1}
+.contact-message-copy .contact-medical-note{font-size:11px;line-height:1.8;color:#7e8377}
+.contact-form-wrap{position:relative;padding:28px;border:1px solid #e1e4d6;border-radius:22px;background:#fffefb;box-shadow:0 24px 65px #26391b12}
+.contact-form-heading{padding:0 0 21px}
+.contact-form-heading>span{color:#7b9544;font-size:9px;font-weight:800;letter-spacing:1.6px}
+.contact-form-heading h3{margin-top:9px;font:500 29px Georgia,serif;color:#193820}
+.contact-form-heading p{margin-top:8px;color:#747b6c;font-size:12px}
+.contact-form-wrap form{padding:0;border:0;background:transparent}
+.contact-form-wrap form h3,.contact-form-wrap form>p:first-of-type{display:none}
+.contact-form-wrap .form-control{min-height:48px;border-color:#e2e5d8;background:#fbfcf7;color:#213321;font:13px Arial,sans-serif;transition:border-color .2s,box-shadow .2s}
+.contact-form-wrap .form-control:focus{outline:none;border-color:#9dbb68;box-shadow:0 0 0 3px #9dbb681e}
+.contact-form-wrap textarea.form-control{min-height:135px;resize:vertical}
+.contact-form-wrap form .btn{justify-content:center;min-height:49px;border-radius:10px;background:#173a1d;color:#fff;font-size:12px;transition:background .2s,transform .2s}
+.contact-form-wrap form .btn:hover{background:#28552b;transform:translateY(-1px)}
+.contact-form-footnote{display:flex;align-items:center;gap:7px;margin-top:15px;color:#87907b;font-size:10px}
+.contact-form-footnote svg{color:#79964b}
+.contact-last-cta{position:relative;overflow:hidden;background:radial-gradient(ellipse at 85% 20%,#52753b4d 0,transparent 35%),linear-gradient(110deg,#09220f,#153d20);color:white}
+.contact-last-cta-inner{display:flex;align-items:center;justify-content:space-between;gap:30px;padding-top:43px;padding-bottom:43px}
+.contact-last-cta-inner>div>span{color:#c4df7b;font-size:9px;font-weight:800;letter-spacing:1.7px}
+.contact-last-cta h2{margin-top:9px;font:500 clamp(25px,3vw,34px) Georgia,serif}
+.contact-last-cta p{margin-top:8px;color:#cbd8c4;font-size:12px;line-height:1.7}
+.contact-last-cta-button{display:inline-flex;align-items:center;gap:10px;flex-shrink:0;padding:14px 19px;border-radius:999px;background:#c2df72;color:#172b11;font-size:12px;font-weight:800;transition:transform .25s,box-shadow .25s}
+.contact-footer{background:#06190b;color:#dfe5d7}
+.contact-footer-home{display:inline-flex;align-items:center;gap:7px;color:#e4ebd9}
+.contact-footer-home svg{color:#b5d66b}
+.contact-footer a:hover{color:#c6e46b}
+@media(max-width:900px){.contact-hero-inner{grid-template-columns:minmax(0,1fr) minmax(280px,.8fr);gap:12px;min-height:510px}.contact-botanical-art{height:360px}.contact-hero h1{font-size:clamp(40px,5.2vw,58px)}.contact-details-grid{gap:10px}.contact-detail-card{padding:18px 13px;gap:11px}.contact-detail-copy strong{font-size:14px}.contact-message-layout{gap:35px}.contact-form-wrap{padding:23px}}
+@media(max-width:680px){.contact-topbar-inner{height:68px}.contact-back-link{font-size:11px}.contact-hero-inner{grid-template-columns:1fr;gap:0;padding-top:44px;padding-bottom:27px;min-height:0}.contact-hero-copy{padding:0}.contact-hero h1{max-width:520px;font-size:clamp(42px,11vw,59px);letter-spacing:-1.5px;margin:20px 0 16px}.contact-hero-copy>p{font-size:13px;line-height:1.8}.contact-hero-actions{gap:16px;margin-top:23px}.contact-whatsapp-button{padding:13px 15px}.contact-hero-note{margin-top:23px}.contact-botanical-art{width:min(100%,330px);height:310px;margin:8px auto 0}.botanical-stem-art{max-width:285px}.botanical-ring-one{width:240px}.botanical-ring-two{width:285px}.botanical-caption{bottom:4px;padding:9px 12px}.botanical-caption-icon{width:31px;height:31px}.botanical-caption strong{font-size:12px}.botanical-caption small{font-size:9px}.contact-floating-leaf.leaf-one{right:5%;top:12%}.contact-floating-leaf.leaf-two{right:13%;bottom:12%}.contact-floating-leaf.leaf-three{left:7%;top:16%}.contact-hero-orbit{width:350px;right:-150px;top:25%}.contact-details-section{padding-bottom:20px}.contact-details-grid{grid-template-columns:1fr;gap:10px}.contact-detail-card{padding:15px 16px}.contact-detail-icon{width:42px;height:42px;flex-basis:42px}.contact-detail-copy strong{font-size:15px}.contact-message-section{padding:48px 0 55px}.contact-message-layout{grid-template-columns:1fr;gap:26px}.contact-message-copy{padding:0}.contact-message-copy h2{font-size:43px;margin-top:16px}.contact-message-copy>p{font-size:13px}.contact-promise{margin-top:20px}.contact-form-wrap{padding:21px 16px;border-radius:17px}.contact-form-heading h3{font-size:26px}.contact-form-wrap .form-control{font-size:16px}.contact-last-cta-inner{align-items:flex-start;flex-direction:column;gap:22px;padding-top:34px;padding-bottom:34px}.contact-last-cta-button{width:100%;justify-content:center}.contact-footer .container{align-items:flex-start;flex-direction:column;gap:13px}}
+@media(prefers-reduced-motion:reduce){.contact-page *{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
