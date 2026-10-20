@@ -415,3 +415,105 @@
 @keyframes floating-whatsapp-pulse{0%{transform:scale(.94);opacity:.7}75%,100%{transform:scale(1.24);opacity:0}}
 @media(max-width:600px){.floating-actions{right:14px;bottom:calc(16px + env(safe-area-inset-bottom));gap:10px}.floating-action{width:49px;height:49px;flex-basis:49px}.floating-action-ring{inset:4px}}
 @media(prefers-reduced-motion:reduce){.floating-action,.floating-back-to-top,.floating-whatsapp,.floating-back-to-top>svg,.floating-whatsapp:after{animation:none!important;transition:none!important}}
+
+
+/* === Refined full-width botanical wave system (desktop + mobile) === */
+.site-header{
+  border-radius:0!important;
+  border-bottom:0!important;
+  box-shadow:0 9px 24px #00150722;
+  overflow:visible;
+}
+.site-header:after{
+  content:"";
+  position:absolute;
+  z-index:3;
+  left:0;
+  right:0;
+  bottom:-17px;
+  height:19px;
+  border-radius:0;
+  filter:none;
+  background-repeat:no-repeat;
+  background-position:center top;
+  background-size:100% 100%;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 24' preserveAspectRatio='none'%3E%3Cpath fill='%230a3219' d='M0 0H1440V5C1320 7 1280 17 1150 14S950 3 820 9 610 21 475 14 250 2 120 10 30 14 0 12Z'/%3E%3Cpath fill='%23b5d66b' opacity='.6' d='M0 13C170 18 250 6 400 13S650 22 800 12 1030 4 1170 12 1340 18 1440 8V10C1320 20 1260 12 1150 15S950 7 820 13 610 24 475 17 250 5 120 13 30 17 0 15Z'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.site-header-inner{position:relative;z-index:4}
+.mobile-navigation{border-radius:0!important;overflow:hidden}
+.site-header:has(.mobile-navigation):after{display:none}
+.hero{
+  border-radius:0!important;
+  overflow:hidden;
+  margin-bottom:0;
+  box-shadow:0 18px 42px #102b1215;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  z-index:3;
+  left:0;
+  right:0;
+  bottom:-1px;
+  height:clamp(42px,5vw,72px);
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  background-size:100% 100%;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath fill='%23a7c34b' opacity='.52' d='M0 44C170 76 260 18 430 36S700 80 870 42 1160 18 1300 37 1400 42 1440 32V90H0Z'/%3E%3Cpath fill='%23e7edcf' d='M0 54C180 83 290 34 455 49S730 78 900 48 1170 30 1320 48 1400 54 1440 42V90H0Z'/%3E%3Cpath fill='%23f7f5ed' d='M0 65C180 91 300 49 470 60S730 88 910 60 1180 43 1320 59 1400 65 1440 55V90H0Z'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.hero-inner{padding-bottom:clamp(68px,7vw,92px)!important}
+.site-footer{
+  margin-top:0!important;
+  padding-top:clamp(62px,7vw,88px)!important;
+  border-top:0!important;
+}
+.site-footer:before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:0;
+  right:0;
+  top:-1px;
+  width:100%;
+  height:clamp(44px,5vw,72px);
+  border-radius:0;
+  background-color:transparent;
+  background-repeat:no-repeat;
+  background-position:center top;
+  background-size:100% 100%;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 90' preserveAspectRatio='none'%3E%3Cpath fill='%23a7c34b' opacity='.5' d='M0 0H1440V38C1300 24 1240 72 1080 52S810 18 650 48 360 70 220 44 80 25 0 48Z'/%3E%3Cpath fill='%23f7f5ed' d='M0 0H1440V51C1300 38 1240 82 1080 65S810 34 650 60 360 83 220 58 80 40 0 62Z'/%3E%3Cpath fill='%23082512' d='M0 62C180 43 250 82 430 66S690 48 850 68 1120 81 1280 58 1380 57 1440 51V90H0Z'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.site-footer-promo{position:relative;z-index:1}
+@media(max-width:900px){
+  .site-header:after{height:15px;bottom:-13px}
+  .hero:after{height:48px;background-size:100% 100%}
+  .hero-inner{padding-bottom:70px!important}
+  .site-footer{padding-top:62px!important}
+  .site-footer:before{height:48px}
+}
+@media(max-width:600px){
+  .site-header:after{height:12px;bottom:-10px;background-size:100% 100%}
+  .site-header-inner{height:68px}
+  .hero{background-position:62% center}
+  .hero:after{height:39px;background-size:100% 100%}
+  .hero-inner{min-height:500px;padding-top:38px!important;padding-bottom:64px!important}
+  .hero h1{font-size:clamp(36px,10vw,43px);line-height:1.06;letter-spacing:-1.15px}
+  .hero p{max-width:36ch;font-size:13px;line-height:1.75}
+  .hero .btn{min-height:46px;padding:12px 15px;font-size:12px}
+  .site-footer{padding-top:52px!important}
+  .site-footer:before{height:38px}
+  .site-footer-promo{grid-template-columns:1fr;gap:15px;padding:22px 19px;border-radius:22px}
+  .site-footer-promo-icon{width:48px;height:48px;border-radius:17px 17px 17px 6px}
+  .site-footer-promo-copy>span{font-size:8px;letter-spacing:1.1px;line-height:1.6}
+  .site-footer-promo-copy h2{font-size:25px;line-height:1.15}
+  .site-footer-promo-copy p{font-size:12px;line-height:1.7}
+  .site-footer-promo-actions{min-width:0;width:100%;gap:12px}
+  .site-footer-whatsapp{width:100%;min-height:46px}
+  .site-footer-browse{padding:4px 2px}
+}
+@media(prefers-reduced-motion:reduce){
+  .site-header:after,.hero:after,.site-footer:before{scroll-behavior:auto}
+}
