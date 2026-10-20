@@ -8,6 +8,8 @@ import {
   Phone, ShieldCheck, Sprout, Sparkles
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 import { graphqlRequest } from "@/lib/graphql";
 
 export default function ContactPage() {
@@ -34,15 +36,7 @@ export default function ContactPage() {
 
   return (
     <main className="contact-page">
-      <header className="contact-topbar">
-        <div className="container contact-topbar-inner">
-          <Link href="/" className="brand-lockup" aria-label="Dr. Mululi African Herbal Medicine home">
-            <span className="brand-mark"><Leaf size={24} /></span>
-            <span className="brand-copy"><strong>Dr. Mululi</strong><small>African Herbal Medicine</small></span>
-          </Link>
-          <Link href="/" className="contact-back-link"><ArrowLeft size={15} /> Back to home</Link>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="contact-hero">
         <div className="contact-hero-glow contact-hero-glow-one" />
@@ -153,7 +147,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <footer className="catalog-footer contact-footer"><div className="container flex flex-wrap items-center justify-between gap-3"><Link href="/" className="contact-footer-home"><Leaf size={15} /> Dr. Mululi African Herbal Medicine</Link><div className="flex flex-wrap gap-4"><Link href="/">Home</Link><Link href="/products">Products</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div><span>© {new Date().getFullYear()} DrMululi.com</span></div></footer>
+      <SiteFooter />
     </main>
   );
 }
