@@ -2,7 +2,7 @@
 import {useEffect,useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {ArrowRight,Search} from "lucide-react";
+import {ArrowRight,Leaf,Search} from "lucide-react";
 import {motion} from "framer-motion";
 import {graphqlRequest} from "@/lib/graphql";import SiteHeader from "@/components/SiteHeader";import SiteFooter from "@/components/SiteFooter";
 type Product={id:string;name:string;description:string;category:string;price:number;currency:string;imageUrl?:string|null;active:boolean;stock:number};
