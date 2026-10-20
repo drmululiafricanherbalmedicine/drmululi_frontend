@@ -82,7 +82,7 @@
 
 
 /* Animated, botanical contact page */
-.contact-page{min-height:100vh;background:#f7f6ef;color:#18251a;overflow:hidden}
+.contact-page{min-height:100vh;background:#f7f6ef;color:#18251a;overflow:clip}
 .contact-topbar{position:relative;z-index:5;background:linear-gradient(105deg,#03170a,#0a3219 58%,#06200f);color:#fff;border-bottom:1px solid #b5d64b35}
 .contact-topbar-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .contact-back-link{display:inline-flex;align-items:center;gap:8px;color:#e1e9d8;font-size:12px;transition:color .2s}
@@ -199,7 +199,7 @@
 .site-footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-top:17px;padding-bottom:18px;border-top:1px solid #ffffff19;color:#91a08b;font-size:10px}
 .site-footer-disclaimer{max-width:460px;line-height:1.6}
 .site-footer-bottom>a{color:#c5d1bd}
-.about-page{min-height:100vh;background:#f6f5ec;color:#1b301d;overflow:hidden}
+.about-page{min-height:100vh;background:#f6f5ec;color:#1b301d;overflow:clip}
 .about-page-hero{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 78% 42%,#31572a 0,transparent 40%),linear-gradient(116deg,#06190b,#0d2c14 63%,#14381b);color:#fff}
 .about-page-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:35px;min-height:490px;padding-top:45px;padding-bottom:48px}
 .about-page-kicker,.about-light-kicker{display:inline-flex;align-items:center;gap:8px;color:#c8e681;font-size:9px;font-weight:800;letter-spacing:1.5px}
