@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ArrowRight, Leaf, Menu, MessageCircle, X } from "lucide-react";
+import { graphqlRequest } from "@/lib/graphql";
 
 const links = [
   { label: "Home", href: "/#home", active: (path: string) => path === "/" },
@@ -16,9 +17,18 @@ const links = [
 
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [business, setBusiness] = useState<Record<string, string>>({});
   const pathname = usePathname();
-  const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+256 700 123 456";
-  const whatsapp = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "256700123456").replace(/\D/g, "");
+  useEffect(() => {
+    graphqlRequest<{ publicSiteSettings: string[] }>("query { publicSiteSettings }")
+      .then((data) => setBusiness(Object.fromEntries(data.publicSiteSettings.map((item) => {
+        const setting = JSON.parse(item);
+        return [setting.key, setting.value];
+      }))))
+      .catch(() => {});
+  }, []);
+  const phone = business.contactPhone || process.env.NEXT_PUBLIC_CONTACT_PHONE || "+256 700 123 456";
+  const whatsapp = (business.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "256700123456").replace(/\\D/g, "");
 
   return (
     <header className="site-header">
