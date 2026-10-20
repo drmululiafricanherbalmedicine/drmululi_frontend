@@ -4,7 +4,7 @@ import { ArrowRight, ArrowUpRight, Leaf, Mail, MapPin, MessageCircle, PhoneCall,
 export default function SiteFooter() {
   const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || "+256 700 123 456";
   const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@drmululi.com";
-  const whatsapp = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "256700123456").replace(/\\D/g, "");
+  const whatsapp = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "256700123456").replace(/\D/g, "");
 
   return (
     <footer className="site-footer">
@@ -52,7 +52,7 @@ export default function SiteFooter() {
           <span className="site-footer-kicker">LET’S CONNECT</span>
           <h3>Real questions deserve a thoughtful response.</h3>
           <p>Reach out for product information, ordering questions, or help finding the right details.</p>
-          <a href={"tel:" + phone.replace(/[^+\\d]/g, "")} className="site-footer-contact-row"><span><PhoneCall size={15} /></span><div><small>Call our team</small><strong>{phone}</strong></div></a>
+          <a href={"tel:" + phone.replace(/[^+\d]/g, "")} className="site-footer-contact-row"><span><PhoneCall size={15} /></span><div><small>Call our team</small><strong>{phone}</strong></div></a>
           <a href={"mailto:" + email} className="site-footer-contact-row"><span><Mail size={15} /></span><div><small>Email us</small><strong>{email}</strong></div></a>
           <div className="site-footer-contact-row"><span><MapPin size={15} /></span><div><small>Based in</small><strong>{process.env.NEXT_PUBLIC_BUSINESS_ADDRESS || "Kampala, Uganda"}</strong></div></div>
           <Link className="site-footer-contact-link" href="/contact">Visit contact page <ArrowRight size={15} /></Link>
