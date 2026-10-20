@@ -2,9 +2,9 @@
 import {useEffect,useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {ArrowLeft,ArrowRight,Leaf,Search} from "lucide-react";
+import {ArrowRight,Search} from "lucide-react";
 import {motion} from "framer-motion";
-import {graphqlRequest} from "@/lib/graphql";
+import {graphqlRequest} from "@/lib/graphql";import SiteHeader from "@/components/SiteHeader";import SiteFooter from "@/components/SiteFooter";
 type Product={id:string;name:string;description:string;category:string;price:number;currency:string;imageUrl?:string|null;active:boolean;stock:number};
 const fallback:Product[]=[
 {id:"infections",name:"Infections",description:"Traditional African botanical blend. Ask a qualified healthcare professional about ingredients and suitability.",category:"Herbal Remedies",price:50000,currency:"UGX",imageUrl:"/products/dr-mululi-infections-500ml.png",active:true,stock:0},
@@ -18,8 +18,8 @@ const [products,setProducts]=useState<Product[]>(fallback),[query,setQuery]=useS
 useEffect(()=>{graphqlRequest<{products:Product[]}>("query { products(activeOnly:true) { id name description category price currency imageUrl active stock } }").then(d=>{if(d.products.length)setProducts(d.products)}).catch(()=>{});},[]);
 const categories=["All",...Array.from(new Set(products.map(p=>p.category)))];
 const filtered=products.filter(p=>(category==="All"||p.category===category)&&(p.name+" "+p.description+" "+p.category).toLowerCase().includes(query.toLowerCase()));
-return <main className="catalog-page"><header className="catalog-topbar"><div className="container flex items-center justify-between gap-4"><Link href="/" className="brand-lockup"><span className="brand-mark"><Leaf size={24}/></span><span className="brand-copy"><strong>Dr. Mululi</strong><small>African Herbal Medicine</small></span></Link><Link href="/" className="catalog-back"><ArrowLeft size={16}/> Back to home</Link></div></header>
+return <main className="catalog-page"><SiteHeader />
 <section className="catalog-hero"><div className="container catalog-hero-inner"><span className="catalog-kicker">ROOTED IN AFRICAN TRADITION</span><h1>Explore our <em>botanical collection.</em></h1><p>Discover the Dr. Mululi range, explore product details, and contact our team with questions before ordering.</p><div className="catalog-search"><Search size={19}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search products..." aria-label="Search products"/></div><div className="catalog-count">{filtered.length} {filtered.length===1?"product":"products"} in the collection</div></div></section>
 <section className="catalog-main"><div className="container"><div className="catalog-filters">{categories.map(c=><button key={c} onClick={()=>setCategory(c)} className={category===c?"catalog-filter active":"catalog-filter"}>{c}</button>)}</div>
 {filtered.length?<div className="product-grid catalog-grid">{filtered.map((p,i)=><motion.article key={p.id} className="product-card catalog-card" initial={{opacity:0,y:18}} animate={{opacity:1,y:0}} transition={{delay:Math.min(i*.04,.25)}}><Link href={"/products/"+encodeURIComponent(p.id)} className="product-card-link"><div className="product-image"><Image src={p.imageUrl||"/products/dr-mululi-infections-500ml.png"} alt={p.name} width={420} height={420} unoptimized/><span className="catalog-card-badge">500 ml collection</span></div><div className="product-info"><span className="product-category">{p.category}</span><h3>{p.name}</h3><p>{p.description}</p><div className="mt-4 flex items-center justify-between"><span className="price">{p.currency} {p.price.toLocaleString()}</span><span className="product-arrow"><ArrowRight size={16}/></span></div><span className="product-detail-hint">View product details <ArrowRight size={13}/></span></div></Link></motion.article>)}</div>:<div className="catalog-empty"><Leaf size={30}/><h2>No products found</h2><p>Try another search term or category.</p><button className="btn btn-dark mt-4" onClick={()=>{setQuery("");setCategory("All");}}>Clear filters</button></div>}</div></section>
-<footer className="catalog-footer"><div className="container flex flex-wrap items-center justify-between gap-3"><span>© {new Date().getFullYear()} Dr. Mululi African Herbal Medicine</span><span>Questions? Contact our team before use.</span></div></footer></main>}
+<SiteFooter /></main>}
