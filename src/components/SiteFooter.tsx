@@ -42,7 +42,7 @@ export default function SiteFooter() {
 
         <div className="site-footer-links">
           <strong>Helpful resources</strong>
-          <Link href="/#how">How ordering works <ArrowRight size={13} /></Link>
+          <Link href="/how-it-works">How ordering works <ArrowRight size={13} /></Link>
           <Link href="/reviews">Customer reviews <ArrowRight size={13} /></Link>
           <Link href="/privacy">Privacy policy <ArrowUpRight size={13} /></Link>
           <Link href="/terms">Terms of use <ArrowUpRight size={13} /></Link>
