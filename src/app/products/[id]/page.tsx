@@ -8,6 +8,7 @@ import {motion} from "framer-motion";
 import {graphqlRequest} from "@/lib/graphql";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import {curatedProducts} from "@/lib/curated-products";
 type Product={id:string;name:string;description:string;category:string;price:number;currency:string;imageUrl?:string|null;active:boolean;stock:number};
 const fallback:Product[]=[
 {id:"infections",name:"Infections",description:"A traditional African botanical blend in the Dr. Mululi collection. Review ingredients and guidance with a qualified healthcare professional before use. Not a substitute for diagnosis or prescribed treatment.",category:"Herbal Remedies",price:50000,currency:"UGX",imageUrl:"/products/dr-mululi-infections-500ml.png",active:true,stock:0},
@@ -17,8 +18,8 @@ const fallback:Product[]=[
 {id:"ulcers",name:"Ulcers",description:"A traditional botanical blend inspired by African herbal practices. Ulcers can require diagnosis and evidence-based treatment.",category:"Digestive Wellness",price:40000,currency:"UGX",imageUrl:"/products/dr-mululi-ulcers-500ml.png",active:true,stock:0},
 {id:"prostate-enlargement",name:"Prostate Enlargement",description:"A traditional botanical blend within the Dr. Mululi men’s wellness collection. Urinary symptoms should be assessed by a qualified healthcare professional.",category:"Men’s Wellness",price:50000,currency:"UGX",imageUrl:"/products/dr-mululi-prostate-enlargement-500ml.png",active:true,stock:0}];
 export default function ProductDetailPage(){
-const params=useParams<{id:string}>(),[products,setProducts]=useState<Product[]>(fallback),[loading,setLoading]=useState(true);
-useEffect(()=>{graphqlRequest<{products:Product[]}>("query { products(activeOnly:true) { id name description category price currency imageUrl active stock } }").then(d=>{if(d.products.length)setProducts(d.products)}).catch(()=>{}).finally(()=>setLoading(false));},[]);
+const params=useParams<{id:string}>(),[products,setProducts]=useState<Product[]>([...fallback,...curatedProducts]),[loading,setLoading]=useState(true);
+useEffect(()=>{graphqlRequest<{products:Product[]}>("query { products(activeOnly:true) { id name description category price currency imageUrl active stock } }").then(d=>{if(d.products.length)setProducts([...d.products,...curatedProducts])}).catch(()=>{}).finally(()=>setLoading(false));},[]);
 const key=decodeURIComponent(params.id||"");
 const product=products.find(p=>p.id===key||p.name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"")===key);
 const phone=(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER||"256700123456").replace(/\D/g,"");
