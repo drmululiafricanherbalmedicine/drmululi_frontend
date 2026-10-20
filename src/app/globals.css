@@ -646,3 +646,16 @@
  .home-horizontal-scroll .product-info h3{font-size:19px}
  .home-horizontal-scroll .product-info>p{min-height:55px}
 }
+
+/* Category shelves: horizontally browsable on desktop and mobile */
+.category-shelf-section{position:relative;background:linear-gradient(145deg,#fbfaf4,#f0f1e6);border-top:1px solid #e5e8d8}
+.category-shelf-section:nth-of-type(even){background:#f7f6ef}
+.category-shelf-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;margin-bottom:25px}
+.category-shelf-heading .eyebrow{color:#718f36}
+.category-shelf-grid>.product-card{flex-basis:276px}
+.category-shelf-grid .product-image img{object-fit:cover}
+.category-shelf-grid .collection-badge{background:#fdfcf0ed;color:#34532a}
+@media(max-width:640px){
+ .category-shelf-heading{align-items:flex-start;flex-direction:column;gap:8px;margin-bottom:17px}
+ .category-shelf-grid>.product-card{flex-basis:min(72vw,250px)}
+}
