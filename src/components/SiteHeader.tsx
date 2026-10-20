@@ -28,7 +28,7 @@ export default function SiteHeader() {
       .catch(() => {});
   }, []);
   const phone = business.contactPhone || process.env.NEXT_PUBLIC_CONTACT_PHONE || "+256 700 123 456";
-  const whatsapp = (business.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "256700123456").replace(/\\D/g, "");
+  const whatsapp = (business.whatsappNumber || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "256700123456").replace(/\D/g, "");
 
   return (
     <header className="site-header">
