@@ -19,8 +19,8 @@ const links = [
   { label: "Home", href: "/#home", active: (path: string) => path === "/" },
   { label: "About Us", href: "/about", active: (path: string) => path === "/about" },
   { label: "Products", href: "/products", active: (path: string) => path.startsWith("/products") },
-  { label: "How It Works", href: "/#how", active: () => false },
-  { label: "Reviews", href: "/#reviews", active: (path: string) => path === "/reviews" },
+  { label: "How It Works", href: "/how-it-works", active: (path: string) => path === "/how-it-works" },
+  { label: "Reviews", href: "/reviews", active: (path: string) => path === "/reviews" },
   { label: "Contact Us", href: "/contact", active: (path: string) => path === "/contact" },
 ];
 
